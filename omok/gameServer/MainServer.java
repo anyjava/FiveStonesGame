@@ -63,6 +63,7 @@ class LogFrame extends JFrame {
 	private JScrollBar m_vScroll;
 	
 	public LogFrame() {
+		/* 20140317 gui 를 뛰우지 않도록 수정
 		super("Server : Version : " + MainServer.VERSION);
 		
 //		cp.setLayout(null);
@@ -93,10 +94,12 @@ class LogFrame extends JFrame {
 				System.exit(0);
 			}
 		});
+		*/
 			
 	}
 	
+	// Frame 쪽으로 출력안되도록 수정함.
 	public static void print(String str) {
-		logWin.append(str + "\n");
+//		logWin.append(str + "\n");
 	}
 }
