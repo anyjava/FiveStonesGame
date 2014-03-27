@@ -54,13 +54,14 @@ public class MainServer {
 	}
 }
 
-class LogFrame extends JFrame {
+//class LogFrame extends JFrame {
+class LogFrame { 
 
-	private static final long serialVersionUID = 1L;
-	private Container cp = this.getContentPane();
-	private static JTextArea logWin = new JTextArea();
-	private JScrollPane sc;
-	private JScrollBar m_vScroll;
+//	private static final long serialVersionUID = 1L;
+//	private Container cp = this.getContentPane();
+//	private static JTextArea logWin = new JTextArea();
+//	private JScrollPane sc;
+//	private JScrollBar m_vScroll;
 	
 	public LogFrame() {
 		/* 20140317 gui 를 뛰우지 않도록 수정
