@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.Vector;
 
 import protocolData.*;
@@ -68,6 +69,12 @@ public class GameServer extends Thread {
 			} catch (EOFException e) {
 				continue;
 
+			} catch ( SocketException e ) {
+				System.out.println(" ¿¬°áÀÌ ²÷°ä½À´Ï´Ù.");
+				e.printStackTrace();
+				flag = false;
+				continue;
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
