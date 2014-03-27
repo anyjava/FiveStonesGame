@@ -34,8 +34,8 @@ public class ClientLobby implements ClientInterface {
 	// private final String serverIP = "127.0.0.1";
 	private final static double VERSION = 1.01;
 	
-	private String serverIP = "127.0.0.1";  // localhost.
-//	private final String serverIP = "203.255.39.110";
+//	private String serverIP = "127.0.0.1";  // localhost.
+	private final String serverIP = "128.199.193.166";
 //	private tring serverIP = "203.255.3.51";  
 	
 	private String name;
@@ -64,7 +64,7 @@ public class ClientLobby implements ClientInterface {
 	private boolean isLogin = false;
 
 	public ClientLobby(String id) {
-		this.serverIP = JOptionPane.showInputDialog("SERVER IP 를 입력하세요");
+//		this.serverIP = JOptionPane.showInputDialog("SERVER IP 를 입력하세요");
 		
 		m_Frame = new MainFrame(this);
 		m_Frame.setPanel(new LoginPanel(this));
