@@ -8,14 +8,14 @@
    [JDK 다운로드](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 ## 설치방법
-- FiveStonesClient.jar 파일 다운로드 ☞[링크]()
-- start.bat 파일 다운로드 ☞[링크]()
+- FiveStonesClient.jar 파일 다운로드 ☞[링크](http://www.anyjava.net/upload/FiveStonesClient.jar)
+- start.bat 파일 다운로드 ☞[링크](http://www.anyjava.net/upload/start.bat)
 - 위 2개 파일을 동일폴더에 위치 시키고 실행한다.
 
 ## 실행방법
 - 아이디 비번은 아무거나 입력 (회원가입 기능 없음)
 
 ## 개선사항
-- client 강제종료시 server 내 사용자 정보 삭제
+- ~~client 강제종료시 server 내 사용자 정보 삭제~~ (2014.03.28 수정)
 
 
