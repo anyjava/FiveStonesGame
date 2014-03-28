@@ -73,6 +73,8 @@ public class GameServer extends Thread {
 				System.out.println(" 연결이 끊겻습니다.");
 				e.printStackTrace();
 				flag = false;
+				
+				exitUser();
 				continue;
 				
 			} catch (IOException e) {
@@ -151,6 +153,9 @@ public class GameServer extends Thread {
 			/*
 			 * 종료.
 			 */
+			
+			exitUser( this.data );
+			/*
 			if(isLogin) {
 				server.broadcasting(data);
 			}
@@ -162,6 +167,7 @@ public class GameServer extends Thread {
 						GameLobbyData.EXIT_ROOM));
 
 			stopThisThread();
+			*/
 			break;
 
 		case ChatData.MESSAGE:
@@ -196,6 +202,33 @@ public class GameServer extends Thread {
 
 	}
 
+	/**
+	 * 강제 종료 상황에서 서버에서 유저를 끊을때,
+	 */
+	private void exitUser() {
+		ChatData data = new ChatData(name, "exit", ChatData.EXIT );
+		exitUser( data );
+	}
+	
+	/**
+	 * 유저가 접속을 끊음을 처리
+	 * @param data
+	 */
+	private void exitUser( Protocol data ) {
+		if(isLogin) {
+			server.broadcasting(data);
+		}
+			server.subSocket(data.getName());
+			sendUserList();
+
+		if (getUserLocation() != ServerInterface.LOBBY)
+			analysisGameLobbyData(new GameLobbyData(data.getName(), null,
+					GameLobbyData.EXIT_ROOM));
+
+		stopThisThread();
+	}
+	
+	
 	/*
 	 * When client is First Connetion...
 	 */
