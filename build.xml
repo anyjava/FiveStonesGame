@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="FiveStones" default="build">
+	<property name="major-version" value="1" />
+	<property name="minor-version" value="0" />
+	<property name="build-number" value="0" />
+	<property name="version" value="${major-version}.${minor-version}.${build-number}" />
+
+	<property name="company-name" value="anyjava" />
+	<property name="project-name" value="FiveStones" />
+	<property name="general-lib-server" value="${company-name}-${project-name}-server.jar" />
+	<property name="general-lib-client" value="${company-name}-${project-name}-client.jar" />
+	<property name="general-src" value="${company-name}-${project-name}-src.zip" />
+	
+	<property name="build-Path" location="." />
+	<property name="src.dir.src" location="${build-Path}/omok" />
+	<property name="src.dir.bin" location="${build-Path}/bin" />
+	<property name="src.dir.build" location="${build-Path}/jar" />
+	
+	<property name="src.dir.image" location="${build-Path}/image" />
+	<property name="src.dir.imageto" location="${src.dir.bin}/image" />
+
+	<property name="main.class.client" value="gameClient.ClientLobby"/>
+	<property name="main.class.server" value="gameServer.MainServer"/>
+
+	<target name="build" depends="build-client, build-server, build-src" />
+	<target name="clean-all" depends="clean-lib, clean-src" />
+
+	<target name="clean-lib">
+		<delete file="${src.dir.build}/${general-lib-client}" />
+		<delete file="${src.dir.build}/${general-lib-server}" />
+	</target>
+
+	<target name="clean-src">
+		<delete file="${src.dir.build}/${general-src}" />
+	</target>
+
+	<target name="build-client" depends="clean-lib">
+		<jar destfile="${src.dir.build}/${general-lib-client}" basedir="${src.dir.bin}">
+			<manifest>
+				<attribute name="${project-name}-Version" value="${version}" />
+				<attribute name="Main-Class" value="${main.class.client}"/>
+			</manifest>
+		</jar>
+		
+		<!-- copy library files to distribute directory -->
+		<copy todir="${src.dir.imageto}">
+			<fileset dir="${src.dir.image}">
+			<!-- include: avoid .svn diretory -->
+			<include name="*"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	
+	<target name="build-server" depends="clean-lib">
+		<jar destfile="${src.dir.build}/${general-lib-server}" basedir="${src.dir.bin}">
+			<manifest>
+				<attribute name="${project-name}-Version" value="${version}" />
+				<attribute name="Main-Class" value="${main.class.server}"/>
+			</manifest>
+		</jar>
+		
+	</target>
+
+	<target name="build-src" depends="clean-src">
+		<zip zipfile="${src.dir.build}/${general-src}" basedir="${src.dir.src}">
+		</zip>
+	</target>
+</project>
