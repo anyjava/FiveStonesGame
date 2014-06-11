@@ -36,6 +36,7 @@ public class MainServer {
 				
 		} catch (IOException e) {
 			System.out.println(e);
+			e.printStackTrace();
 		} finally {
 			serverSocket.close();
 			System.out.println("Server End!!");
