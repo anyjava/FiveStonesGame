@@ -7,6 +7,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.net.Socket;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollBar;
@@ -26,22 +27,28 @@ public class MainServer {
 	public MainServer() throws IOException {
 		serverSocket = new ServerSocket(PORT);
 		lobby = new Lobby();
+		Socket socket = new Socket();
 		
 		System.out.println("Main Server Start!");
 		LogFrame.print("Main Server Start!");
-		try {
-			while (flag) {
-				lobby.addGamer(new GameServer(serverSocket.accept(), lobby));
-			}
-				
-		} catch (IOException e) {
-			System.out.println(e);
-			e.printStackTrace();
-		} finally {
-			serverSocket.close();
-			System.out.println("Server End!!");
-			LogFrame.print("Server End!!");
+		while (flag) {
+			try {
+				socket = serverSocket.accept();
+				lobby.addGamer(new GameServer( socket, lobby));
+					
+			} catch (IOException e) {
+				System.out.println(e);
+				e.printStackTrace();
+			} 
 		}
+		
+		try{} catch( Exception e ) {} finally {
+			socket.close();
+		}
+		
+		serverSocket.close();
+		System.out.println("Server End!!");
+		LogFrame.print("Server End!!");
 	}
 	
 	public static void main(String[] args) {
