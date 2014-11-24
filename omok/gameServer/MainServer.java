@@ -1,18 +1,8 @@
 package gameServer;
 
-import java.awt.Container;
-import java.awt.event.AdjustmentEvent;
-import java.awt.event.AdjustmentListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-
-import javax.swing.JFrame;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 public class MainServer {
 	

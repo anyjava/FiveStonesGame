@@ -9,6 +9,7 @@ public interface LobbyInterface extends ServerInterface {
 	void addGamer(GameServer server);
 	void subRoom(int roomNumber);
 	void printState();
+	public void subSocket(String name);
 	GameRoomInterface getSelectedRoom(String roomName);
 
 }
