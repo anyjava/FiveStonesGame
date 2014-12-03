@@ -21,7 +21,13 @@ public class Lobby implements LobbyInterface {
 		
 		for (GameServer temp : userList.getCollection())
 			if(temp.getUserLocation() == ServerInterface.LOBBY) {
+				try {
 					temp.sendMessage(data);
+				} catch (Exception e) {
+					// Null 예외처리
+					userList.subUser( temp );
+					System.out.println(temp.getUserName() + "을 연결을 해제 하였습니다.");
+				}
 			}
 	}
 	
@@ -34,9 +40,11 @@ public class Lobby implements LobbyInterface {
 		LogFrame.print("in sendSlip : " + data.getReceiver());
 		try {
 			userList.get(data.getReceiver()).sendMessage(data);
-		} catch(NullPointerException e) {
+		} catch(Exception e) {
 			System.out.println("[Throw] Send Slip Exception~!!!");
 			LogFrame.print("[Throw] Send Slip Exception~!!!");
+			
+			userList.subUser( data.getReceiver() );
 		}
 		
 	}

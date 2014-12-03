@@ -4,7 +4,6 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.StreamCorruptedException;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.Vector;
@@ -52,17 +51,17 @@ public class GameServer extends Thread {
             out = new ObjectOutputStream(socket.getOutputStream());
 		} catch (IOException e) {
 			//e.printStackTrace();
-			System.out.println("--");
+			System.out.println("-- ["+name+"]");
 			lobby.subSocket(name);
-			return;
-        } finally {
+
             if( this.socket != null) {
 	            try {
 	                this.socket.close();
-	            } catch (IOException e) {
-	                e.printStackTrace();
+	            } catch (IOException e1) {
+	                e1.printStackTrace();
 	            }
             }
+			return;
         }
 
 		this.start();
@@ -97,15 +96,7 @@ public class GameServer extends Thread {
 				e.printStackTrace();
 				break;
 
-			} finally {
-				if( this.socket != null) {
-					try {
-						this.socket.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
-			}
+			} 
 
 			if (data instanceof ChatData)
 				analysisChatData((ChatData) data);
@@ -129,11 +120,16 @@ public class GameServer extends Thread {
 
 	}
 
-	protected void sendMessage(Protocol data) {
+	protected void sendMessage(Protocol data) throws Exception {
 		try {
 			out.writeObject(data);
+		} catch ( NullPointerException e ) {
+			System.out.println("연결이 끊긴 사용자 입니다.");
+			throw new Exception("사용자 연결이 끊겼습니다. NullPointerException!! ");
 		} catch (IOException e) {
 			e.printStackTrace();
+			System.out.println("연결이 끊긴 사용자 입니다.");
+			throw new Exception("사용자 연결이 끊겼습니다. " + e );
 		}
 	}
 
@@ -173,7 +169,12 @@ public class GameServer extends Thread {
 			break;
 
 		case ChatData.LOGIN_CHECK:
-			sendMessage(data);
+			try {
+				sendMessage(data);
+			} catch (Exception e) {
+				// Null 예외처리
+				e.printStackTrace();
+			}
 
 		case ChatData.EXIT:
 			/*
@@ -218,7 +219,11 @@ public class GameServer extends Thread {
 				list.add(temp.getUserName());
 
 			data.setUserList(list);
-			sendMessage(data);
+			try {
+				sendMessage(data);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
 			break;
 
@@ -291,7 +296,11 @@ public class GameServer extends Thread {
 			setRoomInstance(room);
 
 			data.setRoomNumber(roomNumber);
-			sendMessage(data);
+			try {
+				sendMessage(data);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
 			break;
 
@@ -313,15 +322,22 @@ public class GameServer extends Thread {
 				data.setUserList(room.getStringUser());
 				data.setRoomNumber(roomNumber);
 
-				sendMessage(data);
+				try {
+					sendMessage(data);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				room.sendTo(ServerInterface.IN_GAME_ROOMKING, data);
 				sendUserList();
 
 			} else {
 				room = null;
 
-				sendMessage(new ChatData("알림", "이방은 들어갈수 없습니다.",
-						ChatData.MESSAGE));
+				try {
+					sendMessage(new ChatData("알림", "이방은 들어갈수 없습니다.", ChatData.MESSAGE));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 
 			break;

@@ -30,13 +30,25 @@ public class GameRoom implements GameRoomInterface , Serializable {
 		System.out.println("in broadcast : " + data);
 		LogFrame.print("in broadcast : " + data);
 		
-		for (GameServer temp : userList.getCollection(number)) 
-			if (!(temp.getUserLocation() == ServerInterface.LOBBY))  
-				temp.sendMessage(data);
+		for (GameServer temp : userList.getCollection(number)) {
+			if (!(temp.getUserLocation() == ServerInterface.LOBBY)) { 
+				try {
+					temp.sendMessage(data);
+				} catch (Exception e) {
+					userList.subUser( temp );
+					System.out.println( temp.getName() + "의 연결을 끊었습니다." );
+				}
+			}
+		}
 	}
 
 	public void sendSlip(ChatData data) {
-		userList.get(data.getReceiver()).sendMessage(data);		
+		try {
+			userList.get(data.getReceiver()).sendMessage(data);
+		} catch (Exception e) {
+			userList.subUser( data.getReceiver() );
+			System.out.println( "의 연결을 끊었습니다." );
+		}		
 	}
 
 	public int getNumber() {
@@ -110,7 +122,11 @@ public class GameRoom implements GameRoomInterface , Serializable {
 
 	public void sendTo(int toGamer, Protocol data) {
 		GameServer reciver = find(userList.getCollection(number), toGamer); 
-		reciver.sendMessage(data);
+		try {
+			reciver.sendMessage(data);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 
