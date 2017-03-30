@@ -26,7 +26,7 @@ class EventExecute extends WindowAdapter implements ActionListener{
 	}
 	
 	public void windowClosing(WindowEvent e) {
-		client.sendMessage("´ÔÀÌ ³ª°¡¼Ì½À´Ï´Ù.",  ChatData.EXIT);
+		client.sendMessage("ë‹˜ì´ ë‚˜ê°€ì…¨ìŠµë‹ˆë‹¤.",  ChatData.EXIT);
 		System.exit(0);
 	}
 	
@@ -62,7 +62,7 @@ class EventExecute extends WindowAdapter implements ActionListener{
 		} else if(e.getActionCommand().equals("EXIT")) {
 			this.windowClosing(null);
 			
-		} else if (e.getActionCommand().equals("³ª°¡±â")) {
+		} else if (e.getActionCommand().equals("ë‚˜ê°€ê¸°")) {
 			client.sendMessage(null, GameLobbyData.EXIT_ROOM);
 			
 		} else if (e.getActionCommand().equals("EXIT GAME")) {
@@ -86,7 +86,7 @@ class EventExecute extends WindowAdapter implements ActionListener{
 			gui.setUserListFrame(new UserListFrame(100, 200, this.client));
 			client.sendMessage(null,ChatData.SEND_TOTAL_USER);
 			
-		} else if(e.getActionCommand().equals("ÇÑ¼ö ¹°¸®±â")) {
+		} else if(e.getActionCommand().equals("í•œìˆ˜ ë¬¼ë¦¬ê¸°")) {
 			client.sendMessage(null, GameData.REQUEST_RETURN);
 			
 			/*
@@ -99,10 +99,10 @@ class EventExecute extends WindowAdapter implements ActionListener{
 	}
 	
 	private String getRoomName() {
-		return JOptionPane.showInputDialog("¹æÁ¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä~!");
+		return JOptionPane.showInputDialog("ë°©ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”~!");
 	}
 	/*
-	 *  send Event - ¸Ş¼¼Áö º¸³»±â.
+	 *  send Event - ë©”ì„¸ì§€ ë³´ë‚´ê¸°.
 	 */
 	private void sendChatMessage() {
 		if(!gui.getInputText().equals("")) {

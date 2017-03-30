@@ -32,8 +32,8 @@ public class ClientManager {
 				clientList.remove(i);
 			}
 		}
-		System.out.println("泅犁立加磊 " + clientList.size());
-		LogFrame.print("泅犁立加磊 " + clientList.size());
+		System.out.println("順勳灛鞝戩啀鞛愳垬: " + clientList.size());
+		LogFrame.print("順勳灛鞝戩啀鞛愳垬: " + clientList.size());
 		return null;
 	}
 	

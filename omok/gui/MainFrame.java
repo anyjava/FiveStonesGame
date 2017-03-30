@@ -28,7 +28,7 @@ public class MainFrame extends JFrame implements GuiInterface, LobbyGuiInter, Ga
 		super("Network Omok Ver. 1.0");
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
-				client.sendMessage("´ÔÀÌ ³ª°¡¼Ì½À´Ï´Ù.",  ChatData.EXIT);
+				client.sendMessage("Â´Ã”Ã€ÃŒ Â³ÂªÂ°Â¡Â¼ÃŒÂ½Ã€Â´ÃÂ´Ã™.",  ChatData.EXIT);
 				System.exit(0);
 			}
 		});

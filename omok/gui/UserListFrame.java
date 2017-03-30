@@ -27,7 +27,7 @@ public class UserListFrame extends JFrame {
 	protected ClientInterface client;
 	
 	public UserListFrame(int x, int y, final ClientInterface client) {
-		super("ÀüÃ¼ Á¢¼ÓÀÚ ¸®½ºÆ®");
+		super("ì „ì²´ ì ‘ì†ì ëª©ë¡");
 		
 		this.client = client;
 		

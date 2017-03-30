@@ -24,9 +24,9 @@ public class Lobby implements LobbyInterface {
 				try {
 					temp.sendMessage(data);
 				} catch (Exception e) {
-					// Null ¿¹¿ÜÃ³¸®
+					// Null ì˜ˆì™¸ì²˜ë¦¬
 					userList.subUser( temp );
-					System.out.println(temp.getUserName() + "À» ¿¬°áÀ» ÇØÁ¦ ÇÏ¿´½À´Ï´Ù.");
+					System.out.println(temp.getUserName() + "ì„ ì—°ê²°ì„ í•´ì œ í•˜ì˜€ìŠµë‹ˆë‹¤.");
 				}
 			}
 	}

@@ -14,7 +14,7 @@ import javax.swing.JButton;
  * @version 1.0
  * @since 2005-10-30
  * 
- * ÀÌ Å¬·¡½º´Â ÀÌ¹ÌÁö·Î µÈ ¹öÆ°À» »ç¿ëÇÏ±â À§ÇÑ ÄÄÆ÷³ÍÆ®ÀÌ´Ù.
+ * ì´ í´ë˜ìŠ¤ëŠ” ì´ë¯¸ì§€ë¡œ ëœ ë²„íŠ¼ì„ ì‚¬ìš©í•˜ê¸° ìœ„í•œ ì»´í¬ë„ŒíŠ¸ì´ë‹¤.
  */
 public class ImageButton extends JButton {
 
@@ -28,8 +28,8 @@ public class ImageButton extends JButton {
 	private Image hitImage;
 	
 	/**
-	 * ´Ü¼øÇÏ°Ô ±×¸²ÆÄÀÏ ÇÏ³ª·Î¸¸ µÈ ¹öÆ° »ı¼º.
-	 * @param imageUrl ½ºÆ®¸µÀ¸·Î µÈ ±×¸²ÆÄÀÏ ÁÖ¼Ò
+	 * ë‹¨ìˆœí•˜ê²Œ ê·¸ë¦¼íŒŒì¼ í•˜ë‚˜ë¡œë§Œ ëœ ë²„íŠ¼ ìƒì„±.
+	 * @param imageUrl ìŠ¤íŠ¸ë§ìœ¼ë¡œ ëœ ê·¸ë¦¼íŒŒì¼ ì£¼ì†Œ
 	 */
 	public ImageButton(String imageUrl, String text) {
 		super();
@@ -48,9 +48,9 @@ public class ImageButton extends JButton {
 	}
 	
 	/**
-	 * ÇöÀç ÀÌ¹ÌÁö¿Í Roll OverµÇ¾úÀ» ¶§ÀÇ ÀÌ¹ÌÁö µÎ°³¸¦ °¡Áö°í »ı¼º.
-	 * @param imageUrl ±âº» ÀÌ¹ÌÁö ÆÄÀÏÁÖ¼Ò
-	 * @param rolloverImageUrl ·Ñ ¿À¹ö µÇ¾úÀ» ¶§ Ç¥½ÃµÇ´Â ÀÌ¹ÌÁö ÁÖ¼Ò
+	 * í˜„ì¬ ì´ë¯¸ì§€ì™€ Roll Overë˜ì—ˆì„ ë•Œì˜ ì´ë¯¸ì§€ ë‘ê°œë¥¼ ê°€ì§€ê³  ìƒì„±.
+	 * @param imageUrl ê¸°ë³¸ ì´ë¯¸ì§€ íŒŒì¼ì£¼ì†Œ
+	 * @param rolloverImageUrl ë¡¤ ì˜¤ë²„ ë˜ì—ˆì„ ë•Œ í‘œì‹œë˜ëŠ” ì´ë¯¸ì§€ ì£¼ì†Œ
 	 */
 	public ImageButton(String imageUrl, String text, String rolloverImageUrl) {
 		this(imageUrl, text);
@@ -60,10 +60,10 @@ public class ImageButton extends JButton {
 	}
 	
 	/**
-	 * ÇöÀçÀÌ¹ÌÁö, Roll Over, Hit »óÅÂÀÇ ¼¼°¡Áö ÀÌ¹ÌÁö·Î ¹öÆ° »ı¼º
-	 * @param imageUrl ±âº» ÀÌ¹ÌÁö ÆÄÀÏÁÖ¼Ò
-	 * @param rolloverImageUrl ·Ñ ¿À¹ö µÇ¾úÀ» ¶§ Ç¥½ÃµÇ´Â ÀÌ¹ÌÁö ÁÖ¼Ò
-	 * @param hitImageUrl ¹öÆ°À» Å¬¸¯ÇßÀ»¶§ Ç¥½ÃµÇ´Â ÀÌ¹ÌÁö ÁÖ¼Ò
+	 * í˜„ì¬ì´ë¯¸ì§€, Roll Over, Hit ìƒíƒœì˜ ì„¸ê°€ì§€ ì´ë¯¸ì§€ë¡œ ë²„íŠ¼ ìƒì„±
+	 * @param imageUrl ê¸°ë³¸ ì´ë¯¸ì§€ íŒŒì¼ì£¼ì†Œ
+	 * @param rolloverImageUrl ë¡¤ ì˜¤ë²„ ë˜ì—ˆì„ ë•Œ í‘œì‹œë˜ëŠ” ì´ë¯¸ì§€ ì£¼ì†Œ
+	 * @param hitImageUrl ë²„íŠ¼ì„ í´ë¦­í–ˆì„ë•Œ í‘œì‹œë˜ëŠ” ì´ë¯¸ì§€ ì£¼ì†Œ
 	 */
 	public ImageButton(String imageUrl, String text, 
 			String rolloverImageUrl, String hitImageUrl) {
@@ -75,18 +75,18 @@ public class ImageButton extends JButton {
 	}
 	
 	/**
-	 * ¸Ş¼Òµå ¿À¹ö¶óÀÌµù. ÀÌ¹ÌÁö¸¦ ±×·ÁÁÖ´Â ¸Ş¼Òµå.
+	 * ë©”ì†Œë“œ ì˜¤ë²„ë¼ì´ë”©. ì´ë¯¸ì§€ë¥¼ ê·¸ë ¤ì£¼ëŠ” ë©”ì†Œë“œ.
 	 * @see java.awt.Component#paint(java.awt.Graphics)
 	 */
 	public void paint(Graphics g) {
-//		super.paint(g);   ÀÌ ¸Ş¼Òµå¸¦ ½ÇÇà ½ÃÅ°¸é ¿ø·¡ ¹öÆ° ¸ğ¾çÀÌ ³ª¿Â´Ù.
+//		super.paint(g);   ì´ ë©”ì†Œë“œë¥¼ ì‹¤í–‰ ì‹œí‚¤ë©´ ì›ë˜ ë²„íŠ¼ ëª¨ì–‘ì´ ë‚˜ì˜¨ë‹¤.
 //		System.out.println("BUTTON");
 		g.drawImage(image, 0,0, width, height, null);
 	}
 	
 	/**
-	 * ¹öÆ°ÀÇ ÀÌ¹ÌÁö¸¦ ¹Ù²Ù´Â ¸Ş¼Òµå
-	 * @param imgUrl ¹Ù²ÜÀÌ¹ÌÁöÀÇ °æ·Î
+	 * ë²„íŠ¼ì˜ ì´ë¯¸ì§€ë¥¼ ë°”ê¾¸ëŠ” ë©”ì†Œë“œ
+	 * @param imgUrl ë°”ê¿€ì´ë¯¸ì§€ì˜ ê²½ë¡œ
 	 */
 	public void setImage(String imgUrl) {
 		currentImage = new ImageIcon(
@@ -94,8 +94,8 @@ public class ImageButton extends JButton {
 	}
 	
 	/*
-	 * ÀÌº¥Æ®¸¦ µî·ÏÇÏ´Â ¸Ş¼ÒµåÀÌ´Ù.
-	 * °¢ »óÅÂº°·Î Image°¡ null»óÅÂÀÏ¶§´Â paint()¸¦ È£ÃâÇÏÁö ¾Ê´Â´Ù.
+	 * ì´ë²¤íŠ¸ë¥¼ ë“±ë¡í•˜ëŠ” ë©”ì†Œë“œì´ë‹¤.
+	 * ê° ìƒíƒœë³„ë¡œ Imageê°€ nullìƒíƒœì¼ë•ŒëŠ” paint()ë¥¼ í˜¸ì¶œí•˜ì§€ ì•ŠëŠ”ë‹¤.
 	 */
 	private void addEvent() {
 		addMouseListener(new MouseAdapter() {

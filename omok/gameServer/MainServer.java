@@ -62,7 +62,7 @@ class LogFrame {
 //	private JScrollBar m_vScroll;
 	
 	public LogFrame() {
-		/* 20140317 gui ¸¦ ¶Ù¿ìÁö ¾Êµµ·Ï ¼öÁ¤
+		/* 20140317 gui ë¥¼ ë›°ìš°ì§€ ì•Šë„ë¡ ìˆ˜ì •
 		super("Server : Version : " + MainServer.VERSION);
 		
 //		cp.setLayout(null);
@@ -86,7 +86,6 @@ class LogFrame {
 		
 		this.setSize(300,400);
 		this.setVisible(true);
-
 		
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
@@ -97,7 +96,7 @@ class LogFrame {
 			
 	}
 	
-	// Frame ÂÊÀ¸·Î Ãâ·Â¾ÈµÇµµ·Ï ¼öÁ¤ÇÔ.
+	// Frame ìª½ìœ¼ë¡œ ì¶œë ¥ì•ˆë˜ë„ë¡ ìˆ˜ì •í•¨.
 	public static void print(String str) {
 //		logWin.append(str + "\n");
 	}

@@ -36,7 +36,7 @@ public class GameRoom implements GameRoomInterface , Serializable {
 					temp.sendMessage(data);
 				} catch (Exception e) {
 					userList.subUser( temp );
-					System.out.println( temp.getName() + "ÀÇ ¿¬°áÀ» ²÷¾ú½À´Ï´Ù." );
+					System.out.println( temp.getName() + "ì˜ ì—°ê²°ì„ ëŠì—ˆìŠµë‹ˆë‹¤." );
 				}
 			}
 		}
@@ -47,7 +47,7 @@ public class GameRoom implements GameRoomInterface , Serializable {
 			userList.get(data.getReceiver()).sendMessage(data);
 		} catch (Exception e) {
 			userList.subUser( data.getReceiver() );
-			System.out.println( "ÀÇ ¿¬°áÀ» ²÷¾ú½À´Ï´Ù." );
+			System.out.println( "ì˜ ì—°ê²°ì„ ëŠì—ˆìŠµë‹ˆë‹¤." );
 		}		
 	}
 

@@ -5,25 +5,25 @@ import java.net.URL;
  * @author son
  * @since 2005-11-03
  * 
- *   ÀÌÅ¬·¡½º´Â JARÆÄÀÏ ³»¿¡ Á¸ÀçÇÏ´Â ÀÌ¹ÌÁö ÆÄÀÏÀÇ URLÀ» ¾ò±â À§ÇÑ Å¬·¡½º 
+ *   ì´í´ëž˜ìŠ¤ëŠ” JARíŒŒì¼ ë‚´ì— ì¡´ìž¬í•˜ëŠ” ì´ë¯¸ì§€ íŒŒì¼ì˜ URLì„ ì–»ê¸° ìœ„í•œ í´ëž˜ìŠ¤ 
  */
 public class URLGetter {
 	
 	private URLGetter() {}
 	
 	/**
-	 * stitc ¸Þ¼Òµå·Î¼­, °´Ã¼¸¦ µû·Î »ý¼ºÇÒ ÇÊ¿ä ¾øÀÌ Å¬·¡½º ÀÌ¸§À¸·Î 
-	 * Á¢±ÙÀÌ °¡´ÉÇÏ´Ù. ½ºÆ®¸µÀ¸·Î µÈ ÆÄÀÏÀÌ¸§À» ¸Å°³º¯¼ö·Î ¤¸³Ñ±â¸é URLÀ»
-	 * ¾òÀ»¼ö ÀÖ´Ù.
+	 * stitc ë©”ì†Œë“œë¡œì„œ, ê°ì²´ë¥¼ ë”°ë¡œ ìƒì„±í•  í•„ìš” ì—†ì´ í´ëž˜ìŠ¤ ì´ë¦„ìœ¼ë¡œ 
+	 * ì ‘ê·¼ì´ ê°€ëŠ¥í•˜ë‹¤. ìŠ¤íŠ¸ë§ìœ¼ë¡œ ëœ íŒŒì¼ì´ë¦„ì„ ë§¤ê°œë³€ìˆ˜ë¡œ ã…ˆë„˜ê¸°ë©´ URLì„
+	 * ì–»ì„ìˆ˜ ìžˆë‹¤.
 	 * 
-	 * @param filename ÆÄÀÏÀÌ¸§.
-	 * @return URL °´Ã¼¸¦ ¹ÝÈ¯ÇÑ´Ù.
+	 * @param filename íŒŒì¼ì´ë¦„.
+	 * @return URL ê°ì²´ë¥¼ ë°˜í™˜í•œë‹¤.
 	 */
 	public static URL getResource(String filename) {
-		 // jar¾È¿¡¼­ ÀÐ°ÔÇÑ´Ù.
+		 // jarì•ˆì—ì„œ ì½ê²Œí•œë‹¤.
 		URL url = ClassLoader.getSystemResource(filename);
 
-		//		 jarÆÄÀÏ¿¡¼­ ¹ß°ßµÇÁö ¾ÊÀ¸¸é disk·ÎºÎÅÍ ÀÐ´Â´Ù.
+		//		 jaríŒŒì¼ì—ì„œ ë°œê²¬ë˜ì§€ ì•Šìœ¼ë©´ diskë¡œë¶€í„° ì½ëŠ”ë‹¤.
 		if (url == null) { 
 			try {
 				url = new URL("file", "localhost", filename);

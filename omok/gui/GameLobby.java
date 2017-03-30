@@ -80,13 +80,13 @@ public class GameLobby extends JPanel implements GameLobbyInter, PanelInterface 
 		}
 	};
 
-	private ImageButton m_exitButton = new ImageButton("image/gameLobbyExitButton.jpg", "³ª°¡±â", "image/gameLobbyExitButtonOver.jpg");
+	private ImageButton m_exitButton = new ImageButton("image/gameLobbyExitButton.jpg", "ë‚˜ê°€ê¸°", "image/gameLobbyExitButtonOver.jpg");
 	private ImageButton m_totalUserButton = new ImageButton("image/gameTotalUserButton.jpg","Total User", "image/gameTotalUserButtonOver.jpg");
 	
 	protected AbstractButton m_startButton;
 	
 	/*
-	 * ÀÓ½Ã...
+	 * ì„ì‹œ...
 	 */
 	private Vector<String> vc = new Vector<String>();
 	
@@ -107,7 +107,7 @@ public class GameLobby extends JPanel implements GameLobbyInter, PanelInterface 
 		
 		execute();
 		
-		System.out.println("°ÔÀÓ¹æ »ı¼º.");
+		System.out.println("ê²Œì„ë°© ìƒì„±.");
 	}
 	
 	public static void main(String[] args) {
@@ -177,7 +177,7 @@ public class GameLobby extends JPanel implements GameLobbyInter, PanelInterface 
 //		m_scPaneUserList = new JScrollPane(m_userList,
 //				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 //				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-//		m_scPaneUserList.setBorder(new TitledBorder("°üÀüÀÚ"));
+//		m_scPaneUserList.setBorder(new TitledBorder("ê´€ì „ì"));
 //		m_scPaneUserList.setBounds(5, 5, 220, 90);
 		
 		

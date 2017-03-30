@@ -8,7 +8,7 @@
    [JDK 다운로드](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 ## 설치방법
-- FiveStonesClient.jar 파일 다운로드 ☞[링크](http://www.anyjava.net/upload/FiveStonesClient.jar)
+- FiveStonesClient.jar 파일 다운로드 ☞[링크](http://img.anyjava.net/upload/FiveStonesClient.jar)
 
 - 위 파일을 동일폴더에 위치 시키고 실행한다.
 
@@ -17,16 +17,16 @@
   `java -jar FiveStonesClient.jar`     
 
 - 아이디 비번은 아무거나 입력 (회원가입 기능 없음)
-![오목 로그인](http://www.anyjava.net/upload/omock/0004.jpg)
+![오목 로그인](http://img.anyjava.net/upload/omock/0004.jpg)
 
 - 대기실
-![대기실](http://www.anyjava.net/upload/omock/0001.jpg)
+![대기실](http://img.anyjava.net/upload/omock/0001.jpg)
 
 - 게임 대기실
-![게임 대기실](http://www.anyjava.net/upload/omock/0002.jpg)
+![게임 대기실](http://img.anyjava.net/upload/omock/0002.jpg)
 
 - 게임화면
-![게임화면](http://www.anyjava.net/upload/omock/0003.jpg)
+![게임화면](http://img.anyjava.net/upload/omock/0003.jpg)
 
 
 ## 개선사항

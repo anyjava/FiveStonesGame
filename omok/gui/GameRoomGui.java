@@ -124,13 +124,13 @@ public class GameRoomGui extends JPanel implements RoomGuiInter {
 //		m_exitButton = new ImageButton("EXIT GAME");
 		m_exitButton = new ImageButton("image/exitButton.jpg", "EXIT GAME", "image/exitButtonOver.jpg");
 		
-		// »óÅÂÃ¢
+		// ìƒíƒœì°½
 		m_logScrollPan = new JScrollPane(m_log, 
 				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		m_rightPanel.add(m_logScrollPan);
 		m_logScrollPan.setBounds(3,280,210,195);
-//		m_logScrollPan.setBorder(new TitledBorder("»óÅÂÃ¢"));
+//		m_logScrollPan.setBorder(new TitledBorder("ìƒíƒœì°½"));
 		m_log.setEditable(false);
 		m_log.setLineWrap(true);
 		m_log.setText("");
@@ -162,7 +162,7 @@ public class GameRoomGui extends JPanel implements RoomGuiInter {
 //		m_userScrollPan = new JScrollPane(m_userList, 
 //				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 //				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-//		m_userScrollPan.setBorder(new TitledBorder("°üÀüÀÚ"));
+//		m_userScrollPan.setBorder(new TitledBorder("ê´€ì „ì"));
 //		m_rightPanel.add(m_userScrollPan);
 //		m_userScrollPan.setBounds(0,175,210,100);
 		
@@ -171,7 +171,7 @@ public class GameRoomGui extends JPanel implements RoomGuiInter {
 		m_totalUserButton.setBounds(5,544,65,44);
 		m_totalUserButton.addActionListener(event);
 		
-		m_backButton = new ImageButton("image/backButton.jpg", "ÇÑ¼ö ¹°¸®±â", "image/backButtonOver.jpg");
+		m_backButton = new ImageButton("image/backButton.jpg", "í•œìˆ˜ ë¬¼ë¦¬ê¸°", "image/backButtonOver.jpg");
 		m_backButton.addActionListener(event);
 		
 		m_rightPanel.add(m_backButton);

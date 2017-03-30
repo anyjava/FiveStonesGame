@@ -1,7 +1,7 @@
 package gui;
 
 /*
- * Version 1.01 ÃªÆ¼Ã¢ ¶óÀÎº¸È£.
+ * Version 1.01 ì±—í‹°ì°½ ë¼ì¸ë³´í˜¸.
  */
 
 import gameClient.ClientInterface;
@@ -108,13 +108,13 @@ public class LobbyGui extends JPanel implements LobbyGuiInter, PanelInterface{
 	private ImageButton m_exitButton = new ImageButton("image/lobbyExitButton.jpg", "EXIT","image/lobbyExitButtonOver.jpg");
 
 	/*
-	 * ÀÓ½Ã...
+	 * ì„ì‹œ...
 	 */
 	private Vector<String> vc = new Vector<String>(1);
 
 	
 	/*
-	 * »ı¼ºÀÚ.
+	 * ìƒì„±ì.
 	 */
 	public LobbyGui(ClientInterface client) {
 		this.client = client;
@@ -214,7 +214,7 @@ public class LobbyGui extends JPanel implements LobbyGuiInter, PanelInterface{
 	}
 	
 	private void showPopupMenu(MouseEvent e) {
-		JMenuItem menuSendSlip = new JMenuItem("ÂÊÁö º¸³»±â");
+		JMenuItem menuSendSlip = new JMenuItem("ìª½ì§€ ë³´ë‚´ê¸°");
 		menuSendSlip.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new SlipFrame((String) m_userList.getSelectedValue(), null, true, client);

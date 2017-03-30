@@ -86,7 +86,7 @@ public class GameServer extends Thread {
 				continue;
 
 			} catch ( SocketException e ) {
-				System.out.println(" ¿¬°áÀÌ ²÷°ä½À´Ï´Ù.");
+				System.out.println(" ì—°ê²°ì´ ëŠê²»ìŠµë‹ˆë‹¤.");
 				e.printStackTrace();
 				flag = false;
 				
@@ -124,12 +124,12 @@ public class GameServer extends Thread {
 		try {
 			out.writeObject(data);
 		} catch ( NullPointerException e ) {
-			System.out.println("¿¬°áÀÌ ²÷±ä »ç¿ëÀÚ ÀÔ´Ï´Ù.");
-			throw new Exception("»ç¿ëÀÚ ¿¬°áÀÌ ²÷°å½À´Ï´Ù. NullPointerException!! ");
+			System.out.println("ì—°ê²°ì´ ëŠê¸´ ì‚¬ìš©ì ì…ë‹ˆë‹¤.");
+			throw new Exception("ì‚¬ìš©ì ì—°ê²°ì´ ëŠê²¼ìŠµë‹ˆë‹¤. NullPointerException!! ");
 		} catch (IOException e) {
 			e.printStackTrace();
-			System.out.println("¿¬°áÀÌ ²÷±ä »ç¿ëÀÚ ÀÔ´Ï´Ù.");
-			throw new Exception("»ç¿ëÀÚ ¿¬°áÀÌ ²÷°å½À´Ï´Ù. " + e );
+			System.out.println("ì—°ê²°ì´ ëŠê¸´ ì‚¬ìš©ì ì…ë‹ˆë‹¤.");
+			throw new Exception("ì‚¬ìš©ì ì—°ê²°ì´ ëŠê²¼ìŠµë‹ˆë‹¤. " + e );
 		}
 	}
 
@@ -172,13 +172,13 @@ public class GameServer extends Thread {
 			try {
 				sendMessage(data);
 			} catch (Exception e) {
-				// Null ¿¹¿ÜÃ³¸®
+				// Null ì˜ˆì™¸ì²˜ë¦¬
 				e.printStackTrace();
 			}
 
 		case ChatData.EXIT:
 			/*
-			 * Á¾·á.
+			 * ì¢…ë£Œ.
 			 */
 			
 			exitUser( this.data );
@@ -188,11 +188,9 @@ public class GameServer extends Thread {
 			}
 				server.subSocket(data.getName());
 				sendUserList();
-
 			if (getUserLocation() != ServerInterface.LOBBY)
 				analysisGameLobbyData(new GameLobbyData(data.getName(), null,
 						GameLobbyData.EXIT_ROOM));
-
 			stopThisThread();
 			*/
 			break;
@@ -234,7 +232,7 @@ public class GameServer extends Thread {
 	}
 
 	/**
-	 * °­Á¦ Á¾·á »óÈ²¿¡¼­ ¼­¹ö¿¡¼­ À¯Àú¸¦ ²÷À»¶§,
+	 * ê°•ì œ ì¢…ë£Œ ìƒí™©ì—ì„œ ì„œë²„ì—ì„œ ìœ ì €ë¥¼ ëŠì„ë•Œ,
 	 */
 	private void exitUser() {
 		ChatData data = new ChatData(name, "exit", ChatData.EXIT );
@@ -242,7 +240,7 @@ public class GameServer extends Thread {
 	}
 	
 	/**
-	 * À¯Àú°¡ Á¢¼ÓÀ» ²÷À½À» Ã³¸®
+	 * ìœ ì €ê°€ ì ‘ì†ì„ ëŠìŒì„ ì²˜ë¦¬
 	 * @param data
 	 */
 	private void exitUser( Protocol data ) {
@@ -314,7 +312,7 @@ public class GameServer extends Thread {
 			if (userCount < 2) {
 				setUserLocation(ServerInterface.IN_GAME_CRHARANGER);
 
-				sendUserList(); // ³ª¸ÓÁö ´ë±â½Ç »ç¿ëÀÚ ÃÊ±âÈ­.
+				sendUserList(); // ë‚˜ë¨¸ì§€ ëŒ€ê¸°ì‹¤ ì‚¬ìš©ì ì´ˆê¸°í™”.
 
 				roomNumber = room.getNumber();
 				setRoomInstance(room);
@@ -334,7 +332,7 @@ public class GameServer extends Thread {
 				room = null;
 
 				try {
-					sendMessage(new ChatData("¾Ë¸²", "ÀÌ¹æÀº µé¾î°¥¼ö ¾ø½À´Ï´Ù.", ChatData.MESSAGE));
+					sendMessage(new ChatData("ì•Œë¦¼", "ì´ë°©ì€ ë“¤ì–´ê°ˆìˆ˜ ì—†ìŠµë‹ˆë‹¤.", ChatData.MESSAGE));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -494,10 +492,10 @@ public class GameServer extends Thread {
 				LogFrame.print("============= no TURN!!!  =============");
 				if (getUserLocation() == ServerInterface.IN_GAME_ROOMKING)
 					room.sendTo(ServerInterface.IN_GAME_ROOMKING, new ChatData(
-							"¾Ë¸²", "»ó´ë¹æ Â÷·ÊÀÔ´Ï´Ù.", ChatData.MESSAGE));
+							"ì•Œë¦¼", "ìƒëŒ€ë°© ì°¨ë¡€ì…ë‹ˆë‹¤.", ChatData.MESSAGE));
 				else
 					room.sendTo(ServerInterface.IN_GAME_CRHARANGER, new ChatData(
-							"¾Ë¸²", "»ó´ë¹æ Â÷·ÊÀÔ´Ï´Ù.", ChatData.MESSAGE));
+							"ì•Œë¦¼", "ìƒëŒ€ë°© ì°¨ë¡€ì…ë‹ˆë‹¤.", ChatData.MESSAGE));
 			}
 
 			break;
@@ -517,31 +515,31 @@ public class GameServer extends Thread {
 					if (getUserLocation() == ServerInterface.IN_GAME_ROOMKING) {
 						room.sendTo(ServerInterface.IN_GAME_CRHARANGER, data);
 						room.sendTo(ServerInterface.IN_GAME_ROOMKING, new ChatData(
-							"¾Ë¸²", "»ó´ë¹æÀÇ ÀÀ´äÀ» ±â´Ù¸®´Â ÁßÀÔ´Ï´Ù..", ChatData.MESSAGE));
+							"ì•Œë¦¼", "ìƒëŒ€ë°©ì˜ ì‘ë‹µì„ ê¸°ë‹¤ë¦¬ëŠ” ì¤‘ì…ë‹ˆë‹¤..", ChatData.MESSAGE));
 
 					// room.sendTo(ServerInterface.IN_GAME_ROOMKING,
-					// new GameData("»ó´ë¹æÀÇ ÀÀ´äÀ» ±â´Ù¸®´Â ÁßÀÔ´Ï´Ù...",
+					// new GameData("ìƒëŒ€ë°©ì˜ ì‘ë‹µì„ ê¸°ë‹¤ë¦¬ëŠ” ì¤‘ì…ë‹ˆë‹¤...",
 					// GameData.SEND_GAME_MESSAGE));
 
 					} else {
 						room.sendTo(ServerInterface.IN_GAME_ROOMKING, data);
 						room.sendTo(ServerInterface.IN_GAME_CRHARANGER,
-								new ChatData("¾Ë¸²", "»ó´ë¹æÀÇ ÀÀ´äÀ» ±â´Ù¸®´Â ÁßÀÔ´Ï´Ù..",
+								new ChatData("ì•Œë¦¼", "ìƒëŒ€ë°©ì˜ ì‘ë‹µì„ ê¸°ë‹¤ë¦¬ëŠ” ì¤‘ì…ë‹ˆë‹¤..",
 										ChatData.MESSAGE));
 
 					// room.sendTo(ServerInterface.IN_GAME_CRHARANGER,
-					// new GameData("»ó´ë¹æÀÇ ÀÀ´äÀ» ±â´Ù¸®´Â ÁßÀÔ´Ï´Ù...",
+					// new GameData("ìƒëŒ€ë°©ì˜ ì‘ë‹µì„ ê¸°ë‹¤ë¦¬ëŠ” ì¤‘ì…ë‹ˆë‹¤...",
 					// GameData.SEND_GAME_MESSAGE));
 					}
 				}
 			} else {
-				System.out.println("¹«¸£±â ¾ÈµÊ ¤»¤»¤»");
+				System.out.println("ë¬´ë¥´ê¸° ì•ˆë¨ ã…‹ã…‹ã…‹");
 				if (getUserLocation() == ServerInterface.IN_GAME_ROOMKING)
 					room.sendTo(ServerInterface.IN_GAME_ROOMKING, new ChatData(
-						"¾Ë¸²", "»ó´ë¹æ Â÷·ÊÀÔ´Ï´Ù.", ChatData.MESSAGE));
+						"ì•Œë¦¼", "ìƒëŒ€ë°© ì°¨ë¡€ì…ë‹ˆë‹¤.", ChatData.MESSAGE));
 				else
 					room.sendTo(ServerInterface.IN_GAME_CRHARANGER, new ChatData(
-						"¾Ë¸²", "»ó´ë¹æ Â÷·ÊÀÔ´Ï´Ù.", ChatData.MESSAGE));
+						"ì•Œë¦¼", "ìƒëŒ€ë°© ì°¨ë¡€ì…ë‹ˆë‹¤.", ChatData.MESSAGE));
 			}
 
 			break;
@@ -560,10 +558,10 @@ public class GameServer extends Thread {
 
 			} else if (getUserLocation() == ServerInterface.IN_GAME_ROOMKING)
 				room.sendTo(ServerInterface.IN_GAME_CRHARANGER, new ChatData(
-						"¾Ë¸²", "»ó´ë¹æÀÌ °ÅÀıÇß½À´Ï´Ù.", ChatData.MESSAGE));
+						"ì•Œë¦¼", "ìƒëŒ€ë°©ì´ ê±°ì ˆí–ˆìŠµë‹ˆë‹¤.", ChatData.MESSAGE));
 			else
 				room.sendTo(ServerInterface.IN_GAME_ROOMKING, new ChatData(
-						"¾Ë¸²", "»ó´ë¹æÀÌ °ÅÀıÇß½À´Ï´Ù.", ChatData.MESSAGE));
+						"ì•Œë¦¼", "ìƒëŒ€ë°©ì´ ê±°ì ˆí–ˆìŠµë‹ˆë‹¤.", ChatData.MESSAGE));
 			;
 
 			break;

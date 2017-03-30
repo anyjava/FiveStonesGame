@@ -3,7 +3,7 @@ package gameClient;
 /*
  * Version : 1.01
  * 
- * 09/02 ÆĞÄ¡ : ¹ÙµÏ¾Ë µ¡±×¸®±â ¼öÁ¤, Lobby¿¡¼­ Ã¤ÆÃÃ¢ °­Á¦°³Çà ¼öÁ¤.
+ * 09/02 íŒ¨ì¹˜ : ë°”ë‘‘ì•Œ ë§ê·¸ë¦¬ê¸° ìˆ˜ì •, Lobbyì—ì„œ ì±„íŒ…ì°½ ê°•ì œê°œí–‰ ìˆ˜ì •.
  * 
  */
 
@@ -35,7 +35,7 @@ public class ClientLobby implements ClientInterface {
 	private final static double VERSION = 1.01;
 	
 //	private String serverIP = "127.0.0.1";  // localhost.
-	private final String serverIP = "128.199.193.166";
+	private final String serverIP = "13.124.106.31";
 //	private tring serverIP = "203.255.3.51";  
 	
 	private String name;
@@ -64,7 +64,7 @@ public class ClientLobby implements ClientInterface {
 	private boolean isLogin = false;
 
 	public ClientLobby(String id) {
-//		this.serverIP = JOptionPane.showInputDialog("SERVER IP ¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+//		this.serverIP = JOptionPane.showInputDialog("SERVER IP ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 		
 		m_Frame = new MainFrame(this);
 		m_Frame.setPanel(new LoginPanel(this));
@@ -90,7 +90,7 @@ public class ClientLobby implements ClientInterface {
 		} catch (IOException e) {
 			e.printStackTrace();
 			JOptionPane.showConfirmDialog(null, 
-					"¼­¹ö°¡ ²¨Á®ÀÖ½À´Ï´Ù. SERVER¸¦ È®ÀÎÇÏ¼¼¿ä!!", "Notice!", JOptionPane.DEFAULT_OPTION);
+					"ì„œë²„ê°€ êº¼ì ¸ìˆìŠµë‹ˆë‹¤. SERVERë¥¼ í™•ì¸í•˜ì„¸ìš”!!", "Notice!", JOptionPane.DEFAULT_OPTION);
 			System.exit(0);
 			
 		} finally {
@@ -121,7 +121,7 @@ public class ClientLobby implements ClientInterface {
 					analysisGameData((GameData) data);
 
 				else {
-					System.out.println("¸Â´Â µ¥ÀÌÅÍÇüÀÌ ¾øÀ½.");
+					System.out.println("ë§ëŠ” ë°ì´í„°í˜•ì´ ì—†ìŒ.");
 				}
 
 			}
@@ -139,13 +139,13 @@ public class ClientLobby implements ClientInterface {
 		switch (data.getProtocol()) {
 
 		case ChatData.ENTER:
-			data.setMessage("´ÔÀÌ ÀÔÀåÇÏ¼Ì½À´Ï´Ù.");
+			data.setMessage("ë‹˜ì´ ì…ì¥í•˜ì…¨ìŠµë‹ˆë‹¤.");
 			setTextToLog(data);
 			break;
 			
 		case ChatData.LOGIN_CHECK:
 			JOptionPane.showConfirmDialog(null, 
-					"¹öÁ¯ÀÌ ´Ù¸¨´Ï´Ù~!!!! \n http://26.192.38.68/test/b.html ¿¡¼­ ´Ù¿î¹ŞÀ¸¼¼¿ä~!", "Notice!", JOptionPane.DEFAULT_OPTION);
+					"ë²„ì ¼ì´ ë‹¤ë¦…ë‹ˆë‹¤~!!!! \n http://26.192.38.68/test/b.html ì—ì„œ ë‹¤ìš´ë°›ìœ¼ì„¸ìš”~!", "Notice!", JOptionPane.DEFAULT_OPTION);
 			System.exit(0);
 			break;
 			
@@ -191,7 +191,7 @@ public class ClientLobby implements ClientInterface {
 
 			m_gameLobby.setStartButton(true);
 
-			m_gameLobby.setGameRoomInf("[" + data.getRoomNumber() + "¹ø¹æ] "
+			m_gameLobby.setGameRoomInf("[" + data.getRoomNumber() + "ë²ˆë°©] "
 					+ data.getRoomName());
 
 			break;
@@ -210,7 +210,7 @@ public class ClientLobby implements ClientInterface {
 
 			m_gameLobby.setUserList(temp);
 
-			m_gameLobby.setGameRoomInf("[" + data.getRoomNumber() + "¹ø¹æ] "
+			m_gameLobby.setGameRoomInf("[" + data.getRoomNumber() + "ë²ˆë°©] "
 					+ data.getRoomName());
 			
 			showEnterMessage(data);
@@ -238,11 +238,11 @@ public class ClientLobby implements ClientInterface {
 	}
 
 	private void showEnterMessage(Protocol data) {
-		m_Frame.setTextToLogWindow("[ " + data.getName() + " ] ´ÔÀÌ ÀÔÀåÇÏ¼Ì½À´Ï´Ù \n");
+		m_Frame.setTextToLogWindow("[ " + data.getName() + " ] ë‹˜ì´ ì…ì¥í•˜ì…¨ìŠµë‹ˆë‹¤ \n");
 	}
 
 	private void showExitMessage(Protocol data) {
-		m_Frame.setTextToLogWindow("[ " + data.getName() + " ] ´ÔÀÌ ³ª°¡¼Ì½À´Ï´Ù \n");
+		m_Frame.setTextToLogWindow("[ " + data.getName() + " ] ë‹˜ì´ ë‚˜ê°€ì…¨ìŠµë‹ˆë‹¤ \n");
 	}
 
 	private void analysisGameLobbyData(GameLobbyData data) {
@@ -333,11 +333,11 @@ public class ClientLobby implements ClientInterface {
 			 * send Victory...
 			 */
 			if (data.isBlack()) 
-				JOptionPane.showConfirmDialog(null, "°ËÀºµ¹ÀÌ ÀÌ°å½À´Ï´Ù!", "Notice!",
+				JOptionPane.showConfirmDialog(null, "ê²€ì€ëŒì´ ì´ê²¼ìŠµë‹ˆë‹¤!", "Notice!",
 						JOptionPane.DEFAULT_OPTION);
 				
 			else
-				JOptionPane.showConfirmDialog(null, "ÇÏ¾áµ¹ÀÌ ÀÌ°å½À´Ï´Ù!", "Notice!",
+				JOptionPane.showConfirmDialog(null, "í•˜ì–€ëŒì´ ì´ê²¼ìŠµë‹ˆë‹¤!", "Notice!",
 						JOptionPane.DEFAULT_OPTION);
 			
 			if(isRoomKing())
@@ -351,7 +351,7 @@ public class ClientLobby implements ClientInterface {
 			
 			// inner switch
 			switch (JOptionPane.showConfirmDialog(null, 
-					"ÇÑ¼ö ¹°¸®½Ã°Ú¾¹´Ï±î?", "Notice!", JOptionPane.YES_NO_OPTION)) {
+					"í•œìˆ˜ ë¬¼ë¦¬ì‹œê² ì”ë‹ˆê¹Œ?", "Notice!", JOptionPane.YES_NO_OPTION)) {
 			
 			case 0:
 				sendMessage("YES", GameData.RESPONSE_RETURN);
@@ -371,7 +371,7 @@ public class ClientLobby implements ClientInterface {
 			
 		case GameData.RESPONSE_RETURN:
 			m_gameRoom.backOneStep(data.isBlack() ? 2 : 1);
-			setTextToLog("ÇÑ¼ö¹«¸£±â¸¦ ½Â³« ÇÏ¼Ì½À´Ï´Ù.");
+			setTextToLog("í•œìˆ˜ë¬´ë¥´ê¸°ë¥¼ ìŠ¹ë‚™ í•˜ì…¨ìŠµë‹ˆë‹¤.");
 			break;
 
 		case GameData.SEND_GAME_MESSAGE:
@@ -397,7 +397,7 @@ public class ClientLobby implements ClientInterface {
 	}
 	
 	private void setTextToLog(String str) {
-		m_Frame.setTextToLogWindow("[ " + "¾Ë¸²" + " ] " + str
+		m_Frame.setTextToLogWindow("[ " + "ì•Œë¦¼" + " ] " + str
 				+ "\n");
 	}
 
@@ -500,7 +500,7 @@ public class ClientLobby implements ClientInterface {
 		try {
 			out.writeObject(this.data);
 		} catch (IOException e) {
-			System.out.println("Exception : 362¶óÀÎ.");
+			System.out.println("Exception : 362ë¼ì¸.");
 			e.printStackTrace();
 		}
 	}
@@ -532,7 +532,7 @@ public class ClientLobby implements ClientInterface {
 		else if (panel instanceof GameRoomGui)
 			m_Frame.setPanel((RoomGuiInter)panel);
 		else {
-			System.out.println("¸Â´Â µ¥ÀÌÅÍÇüÀÌ ¾øÀ½.");
+			System.out.println("ë§ëŠ” ë°ì´í„°í˜•ì´ ì—†ìŒ.");
 		}
 		
 	}

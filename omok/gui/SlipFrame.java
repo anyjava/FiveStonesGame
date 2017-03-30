@@ -46,7 +46,7 @@ public class SlipFrame extends JFrame {
 			"Cancel");
 	
 	/*
-	 *  ÂÊÁö º¸³¾¶§ÀÇ »ı¼ºÀÚ.
+	 *  ìª½ì§€ ë³´ë‚¼ë•Œì˜ ìƒì„±ì.
 	 */
 	public SlipFrame(final String to, String message, boolean isSend, final ClientInterface client) {
 
@@ -57,12 +57,12 @@ public class SlipFrame extends JFrame {
 		this.isSend = isSend;
 
 		if (isSend) { // send
-			this.setTitle("ÂÊÁö º¸³»±â");
+			this.setTitle("ìª½ì§€ ë³´ë‚´ê¸°");
 			m_labelID = new JLabel("To...       ");
 			m_inputID.setText(to);
 			
 		} else {
-			this.setTitle("¹ŞÀºÂÊÁö");
+			this.setTitle("ë°›ì€ìª½ì§€");
 			m_labelID = new JLabel("From...    "); // recive
 			m_message.setText(message);
 		}
@@ -93,7 +93,7 @@ public class SlipFrame extends JFrame {
 	}
 	
 	/*
-	 *  ÂÊÁö ¹ŞÀ»¶§ÀÇ »ı¼ºÀÚ.
+	 *  ìª½ì§€ ë°›ì„ë•Œì˜ ìƒì„±ì.
 	 */
 	public SlipFrame(String sender, String message, boolean isSend) {
 		this("", message, isSend, null);
