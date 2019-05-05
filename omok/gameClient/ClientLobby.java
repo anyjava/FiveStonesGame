@@ -35,7 +35,7 @@ public class ClientLobby implements ClientInterface {
 	private final static double VERSION = 1.01;
 	
 //	private String serverIP = "127.0.0.1";  // localhost.
-	private final String serverIP = "13.124.106.31";
+	private final String serverIP = "13.124.24.196";
 //	private tring serverIP = "203.255.3.51";  
 	
 	private String name;
