@@ -22,7 +22,9 @@ import gui.RoomGuiInter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketAddress;
 import java.util.Vector;
 
 import javax.swing.JOptionPane;
@@ -65,7 +67,9 @@ public class ClientLobby implements ClientInterface {
 
 	public ClientLobby(String id) {
 //		this.serverIP = JOptionPane.showInputDialog("SERVER IP 를 입력하세요");
-		
+
+		System.out.println("start! serverIP " + serverIP);
+
 		m_Frame = new MainFrame(this);
 		m_Frame.setPanel(new LoginPanel(this));
 		
@@ -76,7 +80,9 @@ public class ClientLobby implements ClientInterface {
 		}
 		
 		try {
-			socket = new Socket(serverIP, 9999);
+			socket = new Socket();
+			SocketAddress socketAddress = new InetSocketAddress(serverIP, 9999);
+			socket.connect(socketAddress, 3_000);
 			out = new ObjectOutputStream(socket.getOutputStream());
 			netIn = new ObjectInputStream(socket.getInputStream());
 
@@ -93,6 +99,8 @@ public class ClientLobby implements ClientInterface {
 					"서버가 꺼져있습니다. SERVER를 확인하세요!!", "Notice!", JOptionPane.DEFAULT_OPTION);
 			System.exit(0);
 			
+		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {
 			try {
 				socket.close();
